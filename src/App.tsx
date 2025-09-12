@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Form from "./components/Form";
 
 import trash from "./assets/trash.svg";
 import todo from "./assets/todo.svg";
@@ -8,7 +9,7 @@ function App() {
   return (
     <main className="max-w-2xl px-6 py-12 pb-20 mx-auto my-10 bg-white md:my-20 md:px-32 md:rounded-3xl">
       <Header />
-
+      <Form />
       <section className="mt-10 space-y-3 ">
         <article className="flex w-full gap-4">
           <img src={todo} alt="#" />
