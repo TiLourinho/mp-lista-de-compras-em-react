@@ -1,32 +1,26 @@
-import done from "../assets/done.svg";
-import trash from "../assets/trash.svg";
+import Item from "./Item";
+import { ItemProps } from "../types/index";
 
-function PurchasedList() {
-  return (
+type ItemsListProps = {
+  items: ItemProps[];
+};
+
+function PurchasedList({ items }: ItemsListProps) {
+  return items.length > 0 ? (
     <section className="mt-16 space-y-3">
       <h2 className="mb-10 text-3xl text-center font-display">
         Itens já comprados
       </h2>
-      <article className="flex w-full gap-4">
-        <img src={done} alt="#" />
-        <div className="flex-1">
-          <p className="line-through text-slate-400">Leite</p>
-          <p className="text-sm line-through text-slate-400">3 Caixas</p>
-        </div>
-        <img src={trash} alt="ícone de lixeira" className="justify-self-end" />
-      </article>
-      <hr />
-      <article className="flex w-full gap-4">
-        <img src={done} alt="#" />
-        <div className="flex-1">
-          <p className="line-through text-slate-400">Maçã</p>
-          <p className="text-sm line-through text-slate-400">500g</p>
-        </div>
-        <img src={trash} alt="ícone de lixeira" className="justify-self-end" />
-      </article>
-      <hr />
+      {items.map(({ name, quantity, purchased }: ItemProps, index) => (
+        <Item
+          key={index}
+          name={name}
+          quantity={quantity}
+          purchased={purchased}
+        />
+      ))}
     </section>
-  );
+  ) : null;
 }
 
 export default PurchasedList;

@@ -31,7 +31,13 @@ function Form({ onItemsToBuy }: FormProps) {
 
     if (!name || !quantity) return;
 
-    const newItem = { name, quantity };
+    const newItem: ItemProps = {
+      name,
+      quantity,
+      purchased: false,
+      onItemsToBuy: () => {},
+      onItemsPurchased: () => {},
+    };
     onItemsToBuy((currItems) => [...currItems, newItem]);
     setName("");
     setQuantity("");
