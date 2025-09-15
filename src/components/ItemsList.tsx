@@ -23,6 +23,12 @@ function ItemsList({ items, onItemsPurchased, onItemsToBuy }: ItemsListProps) {
     }
   }
 
+  function handleItemRemove(itemName: string) {
+    const newList = items.filter(({ name }) => name !== itemName);
+
+    onItemsToBuy(newList);
+  }
+
   return (
     <section className="mt-10 space-y-3 ">
       {items.map(({ name, quantity }: ItemProps, index) => (
@@ -31,6 +37,7 @@ function ItemsList({ items, onItemsPurchased, onItemsToBuy }: ItemsListProps) {
           name={name}
           quantity={quantity}
           onItemsPurchased={() => handleItemPurchased(name)}
+          onItemRemove={() => handleItemRemove(name)}
         />
       ))}
     </section>

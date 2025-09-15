@@ -8,6 +8,7 @@ function Item({
   quantity,
   purchased = false,
   onItemsPurchased,
+  onItemRemove,
 }: ItemProps) {
   return (
     <>
@@ -27,7 +28,13 @@ function Item({
             {quantity}
           </p>
         </div>
-        <img src={trash} alt="ícone de lixeira" className="justify-self-end" />
+        <button onClick={onItemRemove}>
+          <img
+            src={trash}
+            alt="ícone de lixeira"
+            className="justify-self-end"
+          />
+        </button>
       </article>
       <hr />
     </>

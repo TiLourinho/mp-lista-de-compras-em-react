@@ -19,7 +19,10 @@ function App() {
         onItemsPurchased={setItemsPurchased}
         onItemsToBuy={setItemsToBuy}
       />
-      <PurchasedList items={itemsPurchased} />
+      <PurchasedList
+        items={itemsPurchased}
+        onItemsPurchased={setItemsPurchased}
+      />
     </main>
   );
 }

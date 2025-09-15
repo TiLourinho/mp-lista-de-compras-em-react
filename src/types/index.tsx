@@ -4,4 +4,5 @@ export type ItemProps = {
   purchased?: boolean;
   onItemsPurchased?: () => void;
   onItemsToBuy?: () => void;
+  onItemRemove?: () => void;
 };
